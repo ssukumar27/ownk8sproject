@@ -7,9 +7,9 @@ spec:
   selector:
     app: newimage
   ports:
-    - name: http
-      protocol: TCP
-      port: 80
+     - protocol: TCP
+       port: 80
+       targetPort: 8080
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -29,3 +29,5 @@ spec:
         - name: newimage
           image: ssukumar27/newimage:latest
           imagePullPolicy: Always
+          ports:
+           - containerPort: 8080  
